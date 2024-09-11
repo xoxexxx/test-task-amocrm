@@ -12,11 +12,11 @@ export interface ILead {
     price: number
     tasks: {
         "id": number,
-        "entity_id": number,    // ID сделки
-        "entity_type": string, // Тип сущности — сделка
+        "entity_id": number,   
+        "entity_type": string,
         "text": string,
-        "complete_till": number, // Дата выполнения задачи в Unix timestamp
-        "is_completed": boolean   // Задача не завершена
+        "complete_till": number, 
+        "is_completed": boolean   
     }[]
 }
 
@@ -78,8 +78,8 @@ const App = () => {
                 },
                 params: {
                     filter: {
-                        entity_id: id,        // Передаем ID сделки
-                        entity_type: 'leads',     // Указываем тип сущности (сделка)
+                        entity_id: id,       
+                        entity_type: 'leads',     
                     },
                     limit: 1
    

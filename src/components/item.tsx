@@ -6,7 +6,13 @@ export const Item = ({ onClick, data }: { onClick: React.MouseEventHandler<HTMLD
     const { local_lead_task, setLocalLeadTask } = useLocalStore(state => state);
 
     function parseDate(d: any) {
-        return `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth() + 1).toString().padStart(2, '0')}/${d.getFullYear()}`;
+          const date = new Date(d * 1000);
+
+          const day = String(date.getDate()).padStart(2, '0'); 
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const year = date.getFullYear();
+
+          return `${day}/${month}/${year}`;    
     }
 
     function viewTask(task: {text: string; complete_till: number}) {

@@ -57,7 +57,7 @@ export const Item = ({ onClick, data }: { onClick: React.MouseEventHandler<HTMLD
                     <div>id: {data.id}</div>
                     <div>date: {parseDate(new Date(data.created_at))}</div>
                     <div className="flex gap-3  justify-between">
-                        {viewTask(data.tasks[0])}
+                        {data.tasks && viewTask(data?.tasks[0])}
                     </div>
                     <div className="w-full mt-5 text-end">{data.price}₽</div>
                 </div>

@@ -24,7 +24,7 @@ const App = () => {
 
     const http = rateLimit(axios.create(), { maxRequests: 3, perMilliseconds: 1000 });
 
-    const { access_token } = useLocalStore(state => state)
+    const { access_token, setAccessToken } = useLocalStore(state => state)
     const {
         client_id,
         leads,
@@ -118,6 +118,7 @@ const App = () => {
                 if (error.message === "Too Many Requests (429)" || error.message === "Resource is locked (423)") {
                     setError("Too Many Requests (429)")
                 } else if (error.message === "Unexpected error: 401") {
+                    setAccessToken(null)
                     setError("Unauthorized (401)")
                 } else if (error.status == 204) {
                     setError(null)

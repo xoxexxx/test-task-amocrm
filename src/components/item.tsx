@@ -43,7 +43,7 @@ export const Item = ({ onClick, data }: { onClick: React.MouseEventHandler<HTMLD
     }
 
     return <div className="transition-opacity ease-in duration-700 opacity-100">
-        {!open_lead.some((el: any) => el.id === data.id) ?
+        {!open_lead.some((el: any) => el === data.id) ?
             <div onClick={onClick} className="flex flex-col justify-between h-full">
                 <div>
                     <div>id: {data.id}</div>
